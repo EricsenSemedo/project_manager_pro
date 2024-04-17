@@ -1,13 +1,13 @@
 <?php                                             // Opening PHP tag
 
 $type     = 'mysql';                             // Type of database
-$server   = 'your_server_IP_address';                    // Server the database is on
-$db       = 'your_database_name';     // Name of the database
+$server   = '192.185.2.183';                    // Server the database is on
+$db       = 'ericsens_project';     // Name of the database
 $port     = '3306';                           // Port is usually 3306 in Hostgator
 $charset  = 'utf8mb4';                       // UTF-8 encoding using 4 bytes of data per char
 
-$username = 'your_user';     // Enter YOUR cPanel username and user here
-$password = 'password';           // Enter YOUR user password here
+$username = 'ericsens_user';     // Enter YOUR cPanel username and user here
+$password = 'bTw3478Eric_';           // Enter YOUR user password here
 
 
 
