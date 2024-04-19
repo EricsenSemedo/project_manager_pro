@@ -10,7 +10,6 @@ $username = 'ericsens_user';     // Enter YOUR cPanel username and user here
 $password = 'bTw3478Eric_';           // Enter YOUR user password here
 
 
-
 // DO *NOT* CHANGE ANYTHING BENEATH THIS LINE
 
 
