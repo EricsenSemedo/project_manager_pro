@@ -62,6 +62,13 @@
             justify-content: center; /* Center align horizontally */
             align-items: center; /* Center align vertically */
             height: 100vh; /* Full height of viewport */
+            position: relative;
+        }
+
+        .top-left-button {
+            position: absolute; /* Position absolute to place it at the top left corner */
+            top: 20px; /* Adjust top position as needed */
+            left: 20px; /* Adjust left position as needed */
         }
 
         form {
@@ -103,15 +110,27 @@
             background-color: #0056b3; /* Button background color on hover */
         }
 
-        /*.status-message {
-            text-align: center;
-            color: #2e0000; /* Status message color *//*
-            margin-top: 10px; /* Adjust as needed *//*
+        .top-left-button a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff; /* Button background color */
+            color: #ffffff; /* Button text color */
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
         }
-        */
+
+        .top-left-button a:hover {
+            background-color: #0056b3; /* Button background color on hover */
+        }
+
     </style>
 </head>
 <body>
+    <div class="top-left-button">
+        <a href="http://localhost/project_manager_pro/login.php">Back to Login</a>
+    </div>
     <div>
         <h1>Add New User</h1>
         <form action="register.php" method="POST">
