@@ -92,3 +92,24 @@ button {
     border: 1px solid #cccccc; /* Input border color */
     border-radius: 5px;
 }
+
+a {
+    color: #87CEFA; /* SkyBlue */
+}
+
+a:hover {
+    color: #4169E1; /* RoyalBlue */
+}
+
+.register_link {
+    text-align: center;
+}
+
+.error {
+    color: white;
+    background-color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}

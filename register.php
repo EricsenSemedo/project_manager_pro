@@ -33,7 +33,8 @@
         $lastname = $_POST["lastname"];
         $email = $_POST["email"];
         $userid = $_POST["userid"];
-        $password = $_POST["password"];								// TODO: Hash the password before storing it in the variable to then compare it with the database
+        $password = $_POST["password"];
+        // TODO: Hash the password before storing it in the variable to then compare it with the database
 
         $userInserted = insertUser($pdo, $firstname, $lastname, $email, $userid, $password); 		// Get the user from the database
         

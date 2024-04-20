@@ -55,6 +55,11 @@
     <body>
         <div class="login">
             <h1>Login</h1>
+
+            <?php if ($errorMessage): ?>
+                <p class="error"><?= $errorMessage ?></p>
+            <?php endif;?>
+
             <form action="login.php" method="POST">
                 <label for="email">Email:</label>
                 <input type="text" name="email" id="email" required>
@@ -62,10 +67,8 @@
                 <input type="password" name="password" id="password" required>
                 <button type="submit">Login</button>
             </form>
+            <p class="register_link">Don't have an account? <a href="register.php">Register</a></p>
         </div>
 
-        <?php if ($errorMessage): ?>
-            <p class="error"><?= $errorMessage ?></p>
-        <?php endif;?>
     </body>
 </html>
