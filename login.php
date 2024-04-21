@@ -56,6 +56,11 @@
         <div class="logo">
             <h1 class="logo">Project Manager Pro</h1>
         </div>
+
+        <div class="top-left-button">
+            <a class="top-left-button" href="register.php">Create New Account</a>
+        </div>
+
         <div class="login">
             <h1>Login</h1>
 
@@ -70,8 +75,7 @@
                 <input type="password" name="password" id="password" required>
                 <button type="submit">Login</button>
             </form>
-            <p class="register_link">Don't have an account? <a href="register.php">Register</a></p>
+            <!-- <p class="register_link">Don't have an account? <a href="register.php">Register</a></p> -->
         </div>
-
     </body>
 </html>

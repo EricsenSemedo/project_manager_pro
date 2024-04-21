@@ -53,14 +53,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <title>Create New Account</title>
     <link rel="stylesheet" href="css/style.css">
     <style></style>
 </head>
     <body>
         <div class="top-left-button">
-            <a href="http://localhost/project_manager_pro/login.php">Back to Login</a>
+            <a class="top-left-button" href="http://localhost/project_manager_pro/login.php">Back to Login</a>
         </div>
 
         <div class="register">
