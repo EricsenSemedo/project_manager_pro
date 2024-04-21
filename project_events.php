@@ -4,6 +4,12 @@
     Remove user
 -->
 <?php
+    require 'includes/database-connection.php'; // Require the database connection file
+
+    session_start();
+
+    // Get the user_id from the session
+    $user_id = $_SESSION["user_id"];
 
 ?>
 

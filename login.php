@@ -53,6 +53,9 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <div class="logo">
+            <h1 class="logo">Project Manager Pro</h1>
+        </div>
         <div class="login">
             <h1>Login</h1>
 

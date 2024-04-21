@@ -113,3 +113,10 @@ a:hover {
     border-radius: 5px;
     text-align: center;
 }
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
