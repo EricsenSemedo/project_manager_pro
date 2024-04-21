@@ -53,17 +53,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Create New Account</title>
     <link rel="stylesheet" href="css/style.css">
     <style></style>
 </head>
     <body>
-        <div>
+        <div class="top-left-button">
+            <a href="http://localhost/project_manager_pro/login.php">Back to Login</a>
+        </div>
+
+        <div class="register">
             <h1>Create New Account</h1>
             <form action="register.php" method="POST">
                 <label for="firstname">First Name:</label>
                 <input type="text" name="firstname" id="firstname" required>
-
                 <label for="lastname">Last Name:</label>
                 <input type="text" name="lastname" id="lastname" required>
 
