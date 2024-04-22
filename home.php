@@ -55,7 +55,7 @@
     $errorMessage = NULL;
 
     // Check if the form has been submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!empty($_POST) && $_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Retrieve the name and description from the form
         $title = $_POST["project-name"];
@@ -77,6 +77,8 @@
             // display error message if there is an error
             $errorMessage = $e->getMessage();
         }
+
+        unset($title, $description); // Unset the variables to clear the form (optional
     }
 
     // Get the user's first name
@@ -103,12 +105,13 @@
             <h1>Home</h1>
             <p><?= "Hello, ", $first_name, " this is your home page"?></p>
         </div>
+        
         <div class="projects-you-own">
             <h2>Projects you own</h2>
             <ul>
                 <?php foreach ($owned_projects as $project): ?>
                     <li>
-                        <a href="" ><h3><?= $project["title"] ?></h3><a>
+                        <a href="project_details.php?id=<?= $project["project_id"] ?>"><h3><?= $project["title"] ?></h3></a>
                         <p><?= $project["description"] ?></p>
                     </li>
                 <?php endforeach; ?>
@@ -120,13 +123,16 @@
             <ul>
                 <?php foreach ($projects_user_part_of as $project): ?>
                     <li>
-                        <a href="" ><h3><?= $project["title"] ?></h3><a>
+                        <a href="project_details.php?id=<?= $project["project_id"] ?>"><h3><?= $project["title"] ?></h3></a>
                         <p><?= $project["description"] ?></p>
                     </li>
                 <?php endforeach; ?>
             </ul>
         </div>
 
+       
+
+        
         <br>
         <br>
        
