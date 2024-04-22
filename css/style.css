@@ -138,3 +138,17 @@ a:hover {
 .top-left-button a:hover {
     background-color: #0056b3; /* Button background color on hover */
 }
+
+.logout-button {
+    position: absolute;
+    top: .5vw; /* Padding from top of the browser edge*/
+    right: .5vw; /* Padding from right of the browser edge*/
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Button background color */
+    color: #ffffff; /* Button text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
