@@ -13,7 +13,6 @@
     $project_id = $_GET["id"];
 
     //check if the user is a member of the project
-    
 
     //get the user_id from the session 
     $user_id = $_SESSION["user_id"];
@@ -86,7 +85,7 @@
                     <a href="project_tasks_form.php?id=<?= $project_id ?>"><h3>Add task</h3></a>
                     <?php foreach ($associatedTasks as $task): ?>
                         <li class="khanban-card">
-                            <a href="project_sprints.php?id=<?= $task["id"] ?>"><h3><?php echo $task["title"]; ?></h3></a>
+                            <a href="project_tasks.php?id=<?= $task["id"] ?>"><h3><?php echo $task["title"]; ?></h3></a>
                         </li>
                     <?php endforeach; ?>
                 </ul>
@@ -96,7 +95,7 @@
                     <a href="project_events_form.php?id=<?= $project_id ?>"><h3>Add Events</h3></a>
                     <?php foreach ($associatedEvents as $event): ?>
                         <li class="khanban-card">
-                            <a href="project_sprints.php?id=<?= $event["id"] ?>"><h3><?php echo $event["title"]; ?></h3></a>
+                            <a href="project_events.php?id=<?= $event["id"] ?>"><h3><?php echo $event["title"]; ?></h3></a>
                         </li>
                     <?php endforeach; ?>
                 </ul>
