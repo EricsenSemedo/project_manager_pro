@@ -103,10 +103,7 @@
                 
                 <ul class="khanban-column">
                     <h2>Sprints</h2>
-<<<<<<< HEAD
-=======
                     <a href="project_Sprints_form.php?id=<?= $project_id ?>"><h3>Add Sprints</h3></a>
->>>>>>> main
                     <?php foreach ($associatedSprints as $sprint): ?>
                         <li class="khanban-card">
                             <a href="project_sprints.php?id=<?= $sprint["id"] ?>"><h3><?php echo $sprint["title"]; ?></h3></a>
