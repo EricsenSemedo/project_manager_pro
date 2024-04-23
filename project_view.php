@@ -40,11 +40,11 @@
         <h1><?= $projectDetails["title"] ?></h1>
         <p><?= $projectDetails["description"] ?></p>
         
-        <h3><a href="project_tasks.php?id=<?= $project["project_id"] ?>">Tasks</a></h3>
+        <a href="project_tasks.php?id=<?= $projectId ?>"><h3>Tasks</h3></a>
 
-        <h3><a href="project_sprints.php?id=<?= $project["project_id"] ?>">Events</a></h3>
+        <a href="project_events.php?id=<?= $projectId ?>"><h3>Events</h3></a>
         
-        <h3><a href="project_events.php?id=<?= $project["project_id"] ?>">Sprints</a></h3>
+        <a href="project_sprints.php?id=<?= $project["project_id"] ?>"><h3>Sprints</h3></a>
 
 
         <a class="logout-button" href="logout.php">Logout</a>
