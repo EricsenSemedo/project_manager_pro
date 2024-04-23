@@ -73,7 +73,7 @@
     <BODY>
         <header>
             <h1><?php echo $projectDetails["title"]; ?></h1>
-            <a class="logout-button" href="logout.php">Logout</a>
+            <a class="logout-button right-element" href="logout.php">Logout</a>
         </header>
 
         <main>
@@ -99,7 +99,7 @@
                 </ul>
                 
                 <ul class="khanban-column">
-                    <h2>Events</h2>
+                    <h2>Sprints</h2>
                     <?php foreach ($associatedSprints as $sprint): ?>
                         <li class="khanban-card">
                             <a href="project_sprints.php?id=<?= $sprint["id"] ?>"><h3><?php echo $sprint["title"]; ?></h3></a>

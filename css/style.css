@@ -73,6 +73,13 @@ header {
     display: flex; /* Set up flexbox */
     justify-content: center; /* Center items horizontally */
     background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.right-element {
+    margin-left: auto;
 }
 
 .app-title {
