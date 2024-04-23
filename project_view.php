@@ -10,16 +10,20 @@
         exit;
     }
     
+    $projectId = $_GET["id"];
+
     $errorMessage = "";
 ?>
 
 <!DOCTYPE>
 <HTML>
     <HEAD>
-        <TITLE>Project View</TITLE>
+        <TITLE><?= $projectId ?></TITLE>
         <link rel="stylesheet" href="css/style.css">
     </HEAD>
     <BODY>
+        <h1></h1>
+        
         <a class="logout-button" href="logout.php">Logout</a>
     </BODY>
 
