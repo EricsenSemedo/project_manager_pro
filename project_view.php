@@ -77,11 +77,13 @@
         </header>
 
         <main>
+            <br><br><br> 
             <p><?= $projectDetails["description"]; ?></p>
             
             <section class="khanban-board">
                 <ul class="khanban-column">
                     <h2>Tasks</h2>
+                    <a href="project_tasks_form.php?id=<?= $project_id ?>"><h3>Add task</h3></a>
                     <?php foreach ($associatedTasks as $task): ?>
                         <li class="khanban-card">
                             <a href="project_sprints.php?id=<?= $task["id"] ?>"><h3><?php echo $task["title"]; ?></h3></a>
@@ -91,6 +93,7 @@
 
                 <ul class="khanban-column">
                     <h2>Events</h2>
+                    <a href="project_events_form.php?id=<?= $project_id ?>"><h3>Add Events</h3></a>
                     <?php foreach ($associatedEvents as $event): ?>
                         <li class="khanban-card">
                             <a href="project_sprints.php?id=<?= $event["id"] ?>"><h3><?php echo $event["title"]; ?></h3></a>
@@ -100,6 +103,10 @@
                 
                 <ul class="khanban-column">
                     <h2>Sprints</h2>
+<<<<<<< HEAD
+=======
+                    <a href="project_Sprints_form.php?id=<?= $project_id ?>"><h3>Add Sprints</h3></a>
+>>>>>>> main
                     <?php foreach ($associatedSprints as $sprint): ?>
                         <li class="khanban-card">
                             <a href="project_sprints.php?id=<?= $sprint["id"] ?>"><h3><?php echo $sprint["title"]; ?></h3></a>
@@ -107,6 +114,11 @@
                     <?php endforeach; ?>
                 </ul>
             </section>
+
+            <button onclick="window.location.href='home.php'">Go to Home</button>
+
         </main>
+
+
     </BODY>
 </HTML>
