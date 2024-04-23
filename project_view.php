@@ -28,7 +28,7 @@
     }
 
     function getAssociatedTasks(PDO $pdo, int $project_id){
-        $sql = "SELECT task_id, title, description, due_date
+        $sql = "SELECT task_id, title, description
             FROM Task
             WHERE project_id = :project_id;";
         $tasks = pdo($pdo, $sql, ["project_id" => $project_id])->fetchAll();
