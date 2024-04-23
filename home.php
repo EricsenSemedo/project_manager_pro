@@ -123,6 +123,7 @@
             <ul>
                 <?php foreach ($projects_user_part_of as $project): ?>
                     <li>
+                        
                         <a href="project_view.php?id=<?= $project["project_id"] ?>"><h3><?= $project["title"] ?></h3></a>
                         <p><?= $project["description"] ?></p>
                     </li>
@@ -130,9 +131,7 @@
             </ul>
         </div>
 
-       
-
-        
+              
         <br>
         <br>
        
@@ -150,7 +149,9 @@
         <?php if ($errorMessage): ?>
             <p class="error"><?= $errorMessage ?></p>
         <?php endif;?>
+        
 
+        <a class="logout-button" href="logout.php">Logout</a>
         
         
 
