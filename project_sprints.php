@@ -3,9 +3,29 @@
 
     session_start();
 
-    // Get the user_id from the session
-    $user_id = $_SESSION["user_id"];
+    // Check if the user is not logged in
+    if (!isset($_SESSION["user_id"])) {
+        // Redirect the user to the login page
+        header("Location: login.php");
+        exit;
+    }
+    elseif (!isset($_GET["id"])) {
+        // Redirect the user to the login page
+        header("Location: project_view.php");
+        exit;
+    }
 
+    function getSprintDetails (PDO $pdo, int $sprint_id){
+        $sql = "SELECT sprint_title AS title, sprint_description AS description, start_date, end_date
+            FROM Sprint
+            WHERE sprint_id = :sprint_id;";
+        $project = pdo($pdo, $sql, ["sprint_id" => $sprint_id])->fetch();
+
+        return $project;
+    }
+    
+    $sprint_id = $_GET["id"];
+    $sprintDetails = getSprintDetails($pdo, $sprint_id);
 ?>
 
 <!DOCTYPE>
@@ -15,15 +35,15 @@
         <link rel="stylesheet" href="css/style.css">
     </HEAD>
     <BODY>
-        <div class="project">
-            <h1>Project Sprints</h1>
-            <form action="project_sprints.php" method="post">
-                <input type="text" name="sprint_name" placeholder="Sprint Name">
-                <input type="text" name="sprint_description" placeholder="Sprint Description">
-                <input type="date" name="sprint_start_date">
-                <input type="date" name="sprint_end_date">
-                <input type="submit" name="submit" value="Add Sprint">
-            </form>
-        </div>
+        <header>
+            <h1><?php echo $sprintDetails["title"]; ?></h1>
+            <a class="logout-button" href="logout.php">Logout</a>
+        </header>
+
+        <main>
+            <p><?php echo "Start: ", $sprintDetails["start_date"]; ?> </p>
+            <p><?php echo "End: ", $sprintDetails["end_date"]; ?> </p>
+            <p><?php echo $sprintDetails["description"]; ?></p>
+        </main>
     </BODY>
 </HTML>
