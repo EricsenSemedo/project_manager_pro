@@ -5,4 +5,4 @@
     unset($_SESSION["user_id"]);
 
     // Redirect the user to the login page
-    header("Location: login.php")
+    header("Location: login.php");
