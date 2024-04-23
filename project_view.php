@@ -38,6 +38,17 @@
 
     $projectDetails = getProjectDetails($pdo, $projectId);
     $errorMessage = "";
+
+    getProjectEvents(PDO $pdo, int $project_id) {
+        $sql = "SELECT *
+            FROM Event
+            WHERE project_id = :project_id;"
+        $events = pdo($pdo, $sql, ["project_id" => $project_id])->fetch();
+
+        return $events;
+    }
+
+    $events = getProjectEvents($pdo, $project_id);
 ?>
 
 <!DOCTYPE>
@@ -47,29 +58,21 @@
         <link rel="stylesheet" href="css/style.css">
     </HEAD>
     <BODY>
-        <header>
-            <h1><?= $projectDetails["title"] ?></h1>
-        </header>
 
-        <main>
-            <p><?= $projectDetails["description"] ?></p>
-            
-            <section>
-                <h2>Tasks</h2>
-                <a href="project_tasks.php?id=<?= $projectId ?>"><h3>Tasks</h3></a>
-            </section>
-            
-            <section>
-                <h2>Events</h2>
-                <a href="project_events.php?id=<?= $projectId ?>"><h3>Events</h3></a>
-            </section>
-            
-            <section>
-                <a href="project_sprints.php?id=<?= $projectId ?>"><h3>Sprints</h3></a>
-            </section>
+        <h1><?= $projectDetails["title"] ?></h1>
+        <p><?= $projectDetails["description"] ?></p>
+        
+        <a href="project_tasks.php?id=<?= $projectId ?>"><h3>Tasks</h3></a>
 
+        <a href="project_events.php?id=<?= $projectId ?>"><h3>Events</h3></a>
+        
+        <a href="project_sprints.php?id=<?= $projectId ?>"><h3>Sprints</h3></a>
+
+
+        <div class="topBar">
             <a class="logout-button" href="logout.php">Logout</a>
-        </main>
-    </BODY>
+            <h1 class="project-name"><?php echo "PROJ NAME HERE";?></h1>
+        </div>
 
+    </BODY>
 </HTML>

@@ -53,15 +53,14 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <div class="logo">
-            <h1 class="logo">Project Manager Pro</h1>
-        </div>
+        <header>
+            <nav>
+                <a class="top-left-button" href="register.php">Create New Account</a>
+            </nav>
+            <p class="app-title">Project Manager Pro</p>
+        </header>
 
-        <div class="top-left-button">
-            <a class="top-left-button" href="register.php">Create New Account</a>
-        </div>
-
-        <div class="login">
+        <main>
             <h1>Login</h1>
 
             <?php if ($errorMessage): ?>
@@ -75,7 +74,6 @@
                 <input type="password" name="password" id="password" required>
                 <button type="submit">Login</button>
             </form>
-            <!-- <p class="register_link">Don't have an account? <a href="register.php">Register</a></p> -->
-        </div>
+        </main>
     </body>
 </html>
