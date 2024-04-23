@@ -12,18 +12,41 @@
     
     $projectId = $_GET["id"];
 
+    //check if the user is a member of the project
+    
+
+    //get the user_id from the session 
+    $user_id = $_SESSION["user_id"];
+
+    function getProjectDetails(PDO $pdo, int $projectId){
+        $sql = "SELECT title, description
+            FROM Projects
+            WHERE project_id = :project_id;";
+        $project = pdo($pdo, $sql, ["project_id" => $projectId])->fetch();
+        return $project;
+    }
+
+    $projectDetails = getProjectDetails($pdo, $projectId);
     $errorMessage = "";
 ?>
 
 <!DOCTYPE>
 <HTML>
     <HEAD>
-        <TITLE><?= $projectId ?></TITLE>
+        <TITLE></TITLE>
         <link rel="stylesheet" href="css/style.css">
     </HEAD>
     <BODY>
-        <h1></h1>
+        <h1><?= $projectDetails["title"] ?></h1>
+        <p><?= $projectDetails["description"] ?></p>
         
+        <h3><a href="project_tasks.php?id=<?= $project["project_id"] ?>">Tasks</a></h3>
+
+        <h3><a href="project_sprints.php?id=<?= $project["project_id"] ?>">Events</a></h3>
+        
+        <h3><a href="project_events.php?id=<?= $project["project_id"] ?>">Sprints</a></h3>
+
+
         <a class="logout-button" href="logout.php">Logout</a>
     </BODY>
 
