@@ -111,6 +111,11 @@
                     <?php endforeach; ?>
                 </ul>
             </section>
+
+            <button onclick="window.location.href='home.php'">Go to Home</button>
+
         </main>
+
+
     </BODY>
 </HTML>

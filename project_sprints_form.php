@@ -63,4 +63,5 @@
             </form>
         </div>
     </BODY>
+    <a href="project_view.php?id=<?= $project_id ?>">Back to Project View</a>
 </HTML>
