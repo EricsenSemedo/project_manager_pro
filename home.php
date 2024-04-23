@@ -111,7 +111,7 @@
             <ul>
                 <?php foreach ($owned_projects as $project): ?>
                     <li>
-                        <a href="project_details.php?id=<?= $project["project_id"] ?>"><h3><?= $project["title"] ?></h3></a>
+                        <a href="project_view.php?id=<?= $project["project_id"] ?>"><h3><?= $project["title"] ?></h3></a>
                         <p><?= $project["description"] ?></p>
                     </li>
                 <?php endforeach; ?>
@@ -123,7 +123,7 @@
             <ul>
                 <?php foreach ($projects_user_part_of as $project): ?>
                     <li>
-                        <a href="project_details.php?id=<?= $project["project_id"] ?>"><h3><?= $project["title"] ?></h3></a>
+                        <a href="project_view.php?id=<?= $project["project_id"] ?>"><h3><?= $project["title"] ?></h3></a>
                         <p><?= $project["description"] ?></p>
                     </li>
                 <?php endforeach; ?>
