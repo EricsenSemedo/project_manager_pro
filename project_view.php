@@ -44,7 +44,7 @@
 
         <a href="project_events.php?id=<?= $projectId ?>"><h3>Events</h3></a>
         
-        <a href="project_sprints.php?id=<?= $project["project_id"] ?>"><h3>Sprints</h3></a>
+        <a href="project_sprints.php?id=<?= $projectId ?>"><h3>Sprints</h3></a>
 
 
         <a class="logout-button" href="logout.php">Logout</a>
