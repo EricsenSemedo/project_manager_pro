@@ -11,6 +11,17 @@
     }
     
     $errorMessage = "";
+
+    getProjectEvents(PDO $pdo, int $project_id) {
+        $sql = "SELECT *
+            FROM Event
+            WHERE project_id = :project_id;"
+        $events = pdo($pdo, $sql, ["project_id" => $project_id])->fetch();
+
+        return $events;
+    }
+
+    $events = getProjectEvents($pdo, $project_id);
 ?>
 
 <!DOCTYPE>
@@ -20,7 +31,9 @@
         <link rel="stylesheet" href="css/style.css">
     </HEAD>
     <BODY>
-        <a class="logout-button" href="logout.php">Logout</a>
+        <div class="topBar">
+            <a class="logout-button" href="logout.php">Logout</a>
+            <h1 class="project-name"><?php echo "PROJ NAME HERE";?></h1>
+        </div>
     </BODY>
-
 </HTML>

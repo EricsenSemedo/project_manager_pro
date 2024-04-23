@@ -58,7 +58,7 @@
     <style></style>
 </head>
     <body>
-        <div class="top-left-button">
+        <div>
             <a class="top-left-button" href="http://localhost/project_manager_pro/login.php">Back to Login</a>
         </div>
 
