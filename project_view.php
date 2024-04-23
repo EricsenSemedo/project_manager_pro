@@ -27,29 +27,41 @@
         return $project;
     }
 
+    // This function gets all the tasks associated with a project
     function getAssociatedTasks(PDO $pdo, int $project_id){
-        $sql = "SELECT task_id, title, description
+        $sql = "SELECT task_id AS id, title
             FROM Task
             WHERE project_id = :project_id;";
         $tasks = pdo($pdo, $sql, ["project_id" => $project_id])->fetchAll();
 
         return $tasks;
     }
-
-    $projectDetails = getProjectDetails($pdo, $project_id);
-    $errorMessage = "";
-
+    
+    // This function gets all the events associated with a project
     function getProjectEvents(PDO $pdo, int $project_id) {
-        $sql = "SELECT *
+        $sql = "SELECT event_id AS id, event_title AS title
             FROM Event
             WHERE project_id = :project_id;";
-        $events = pdo($pdo, $sql, ["project_id" => $project_id])->fetch();
+        $events = pdo($pdo, $sql, ["project_id" => $project_id])->fetchAll();
 
         return $events;
     }
 
-    $events = getProjectEvents($pdo, $project_id);
+    // This function gets all the sptrints associated with a project
+    function getAssociatedSprints(PDO $pdo, int $project_id) {
+        $sql = "SELECT sprint_id AS id, sprint_title AS title
+            FROM Sprint
+            WHERE project_id = :project_id;";
+        $sprints = pdo($pdo, $sql, ["project_id" => $project_id])->fetchAll();
+
+        return $sprints;
+    }
+
+    $errorMessage = "";
+    $projectDetails = getProjectDetails($pdo, $project_id);
+    $associatedEvents = getProjectEvents($pdo, $project_id);
     $associatedTasks = getAssociatedTasks($pdo, $project_id);
+    $associatedSprints = getAssociatedSprints($pdo, $project_id);
 ?>
 
 <!DOCTYPE>
@@ -65,25 +77,34 @@
         </header>
 
         <main>
-            <p><?= $projectDetails["description"] ?></p>
+            <p><?= $projectDetails["description"]; ?></p>
             
             <section class="khanban-board">
                 <ul class="khanban-column">
+                    <h2>Tasks</h2>
                     <?php foreach ($associatedTasks as $task): ?>
                         <li class="khanban-card">
-                            <h3><?= $task["title"] ?></h3>
-                            <p><?= $task["description"] ?></p>
+                            <a href="project_sprints.php?id=<?= $task["id"] ?>"><h3><?php echo $task["title"]; ?></h3></a>
                         </li>
                     <?php endforeach; ?>
-                    <a href="project_tasks.php?id=<?= $project_id ?>"><h3>Tasks</h3></a>
                 </ul>
 
                 <ul class="khanban-column">
-                    <a href="project_events.php?id=<?= $project_id ?>"><h3>Events</h3></a>
+                    <h2>Events</h2>
+                    <?php foreach ($associatedEvents as $event): ?>
+                        <li class="khanban-card">
+                            <a href="project_sprints.php?id=<?= $event["id"] ?>"><h3><?php echo $event["title"]; ?></h3></a>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
                 
                 <ul class="khanban-column">
-                    <a href="project_sprints.php?id=<?= $project_id ?>"><h3>Sprints</h3></a>
+                    <h2>Events</h2>
+                    <?php foreach ($associatedSprints as $sprint): ?>
+                        <li class="khanban-card">
+                            <a href="project_sprints.php?id=<?= $sprint["id"] ?>"><h3><?php echo $sprint["title"]; ?></h3></a>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </section>
         </main>
