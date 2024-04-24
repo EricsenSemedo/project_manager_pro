@@ -50,91 +50,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New User</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #285b99; /* Background color */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center; /* Center align horizontally */
-            align-items: center; /* Center align vertically */
-            height: 100vh; /* Full height of viewport */
-            position: relative;
-        }
-
-        .top-left-button {
-            position: absolute; /* Position absolute to place it at the top left corner */
-            top: 20px; /* Adjust top position as needed */
-            left: 20px; /* Adjust left position as needed */
-        }
-
-        form {
-            background-color: #dedede; /* Form background color */
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0px 0px 40px 0px rgba(150, 170, 250,1); /* Shadow effect */
-            width: calc(33.33% - 20px); /* Each form takes up roughly one-third of the available space */
-            margin: 0 10px; /* Added margin between forms */
-        }
-
-        h1 {
-            text-align: center;
-            color: #290000; /* Heading color */
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            color: #666666; /* Label color */
-        }
-
-        input[type="text"],
-        input[type="password"],
-        button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #cccccc; /* Input border color */
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #007bff; /* Button background color */
-            color: #ffffff; /* Button text color */
-            cursor: pointer;
-            width: calc(100% - 20px);
-        }
-
-        button:hover {
-            background-color: #0056b3; /* Button background color on hover */
-        }
-
-        .top-left-button a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff; /* Button background color */
-            color: #ffffff; /* Button text color */
-            text-decoration: none; /* Remove underline */
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .top-left-button a:hover {
-            background-color: #0056b3; /* Button background color on hover */
-        }
-
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="top-left-button">
-        <a href="http://localhost/project_manager_pro/login.php">Back to Login</a>
-    </div>
-    <div>
-        <h1>Add New User</h1>
-        <form action="register.php" method="POST">
+        <header>
+            <nav>
+                <a class="top-left-button" href="http://localhost/project_manager_pro/login.php">Back to Login</a>
+            </nav>
+            <p class="app-title">Project Manager Pro</p>
+        </header>
+        <div>
+            <h1>Add New User</h1>
+            <form action="register.php" method="POST">
             <label for="firstname">First Name:</label>
             <input type="text" name="firstname" id="firstname" required>
 
