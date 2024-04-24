@@ -99,61 +99,142 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Login</title>
         <link rel="stylesheet" href="css/style.css">
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #285b99; /* Background color */
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center; /* Center align horizontally */
+                align-items: center; /* Center align vertically */
+                height: 100vh; /* Full height of viewport */
+                position: relative;
+            }
+
+            button {
+                width: calc(100% - 20px);
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 1px solid #cccccc; /* Input border color */
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+
+            button {
+                background-color: #007bff; /* Button background color */
+                color: #ffffff; /* Button text color */
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: #0056b3; /* Button background color on hover */
+            }
+
+            h1 {
+                text-align: center;
+                color: #290000; /* Heading color */
+            }
+
+            form {
+                background-color: #dedede; /* Form background color */
+                padding: 50px;
+                border-radius: 25px;
+                box-shadow: 0px 0px 40px 0px rgba(150, 170, 250,0.25); /* Shadow effect */
+                width: calc(33.33% - 20px); /* Each form takes up roughly one-third of the available space */
+                margin: 0 25px; /* Added margin between forms */
+            }
+
+            label {
+                display: block;
+                margin-bottom: 10px;
+                color: #000000; /* Label color */
+            }
+
+            .top_left_text {
+                position: absolute; /* Position absolute to place it at the top left corner */
+                top: 20px; /* Adjust top position as needed */
+                left: 20px; /* Adjust left position as needed */
+            }
+
+            .logout-button {
+                display: block;
+                width: 68%;
+                background-color: #dc3545;
+                color: #fff;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                text-decoration: none;
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .create-project {
+                width: 30%;
+            }
+
+            .logout-button:hover {
+                background-color: #c82333;
+            }
+
+        </style>
+        
     </head>
     <body>
-        <div class="home">
-            <h1>Home</h1>
-            <p><?= "Hello, ", $first_name, " this is your home page"?></p>
+        
+        <div class="top_left_text">
+            <h1><?= "Hello, ", $first_name, " this is your home page"?></h1>
         </div>
         
-        <div class="projects-you-own">
-            <h2>Projects you own</h2>
-            <ul>
-                <?php foreach ($owned_projects as $project): ?>
-                    <li>
-                        <a href="project_view.php?id=<?= $project["project_id"] ?>"><h3><?= $project["title"] ?></h3></a>
-                        <p><?= $project["description"] ?></p>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
+        <form class="home">
+            <div class="projects-you-own">
+                <h2>Projects you own</h2>
+                <ul>
+                    <?php foreach ($owned_projects as $project): ?>
+                        <li>
+                            <a href="project_view.php?id=<?= $project["project_id"] ?>"><h3><?= $project["title"] ?></h3></a>
+                            <p><?= $project["description"] ?></p>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </form>
 
-        <div class="projects-you-are-part-of">
-            <h2>Projects you are a member of</h2>
-            <ul>
-                <?php foreach ($projects_user_part_of as $project): ?>
-                    <li>
+        <form class="home">
+            <div class="projects-you-are-part-of">
+                <h2>Projects you are a member of</h2>
+                <ul>
+                    <?php foreach ($projects_user_part_of as $project): ?>
+                        <li>
                         
-                        <a href="project_view.php?id=<?= $project["project_id"] ?>"><h3><?= $project["title"] ?></h3></a>
-                        <p><?= $project["description"] ?></p>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-
-              
-        <br>
-        <br>
-       
+                            <a href="project_view.php?id=<?= $project["project_id"] ?>"><h3><?= $project["title"] ?></h3></a>
+                            <p><?= $project["description"] ?></p>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </form>
+            
         <div class="create-project">
-            <h1>Create Project</h1>
             <form action="home.php" method="POST">
+                <h1>Create Project</h1>
                 <label for="project-name">Project Name:</label>
                 <input type="text" name="project-name" id="project-name" required>
                 <label for="project-description">Project Description:</label>
                 <input type="text" name="project-description" id="project-description" required>
                 <button type="submit">Create</button>
             </form>
+            <div class="container">
+                <button class="logout-button" onclick="window.location.href='logout.php'">Logout</button>
+            </div>
         </div>
-
+        
         <?php if ($errorMessage): ?>
             <p class="error"><?= $errorMessage ?></p>
         <?php endif;?>
-        
-
-        <a class="logout-button" href="logout.php">Logout</a>
-        
-        
 
     </body>
 </html>

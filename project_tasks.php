@@ -24,8 +24,19 @@
         return $project;
     }
     
+    function getTaskNotes (PDO $pdo, int $task_id){
+        $sql = "SELECT  n.date, n.info, u.email 
+            FROM Note n
+            JOIN Users u ON n.user_id = u.user_id
+            WHERE task_id = :task_id;";
+        $notes = pdo($pdo, $sql, ["task_id" => $task_id])->fetchAll();
+
+        return $notes;
+    }
+
     $task_id = $_GET["id"];
     $taskDetails = getTaskDetails($pdo, $task_id);
+    $taskNotes = getTaskNotes($pdo, $task_id);
 ?>
 
 <!DOCTYPE>
@@ -41,8 +52,27 @@
         </header>
 
         <main>
-            <p><?php echo $taskDetails["status"]; ?></p>
-            <p><?php echo $taskDetails["description"]; ?></p>
+            <p>Task Status:<?php echo $taskDetails["status"]; ?></p>
+
+            <a  href="project_tasks_status.php?id=<?= $task_id ?>"><p>Update Status</p></a>
+
+            <p>Task Description:<?php echo $taskDetails["description"]; ?></p>
+
+
+            <!-- note list -->
+            <h2>Notes:</h2>
+            <a href="project_tasks_notes.php?id=<?= $task_id ?>"><h3>Add Notes</h3></a>
+            <ul>
+                <?php foreach ($taskNotes as $note): ?>
+                    <li>
+                        <p><?php echo $note["info"]; ?></p>
+                        <p><b>Date:</b> <?php echo $note["date"]; ?></p>
+                        <p><b>Author:</b> <?php echo $note["email"]; ?></p>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            
+                
         </main>
     </BODY>
 </HTML>
