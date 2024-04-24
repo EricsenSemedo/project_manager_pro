@@ -36,7 +36,7 @@
     //function that grabs projects user is a part of 
     function getUserPartOfProjects(PDO $pdo, int $user_id) {
         //get the projects user is a member of but isnt the owner
-        $sql = "SELECT p.title, p.description
+        $sql = "SELECT p.project_id, p.title, p.description
             FROM Projects p
             JOIN Project_members pm ON p.project_id = pm.project_id  
             WHERE pm.user_id = :user_id1
@@ -209,7 +209,6 @@
                 <ul>
                     <?php foreach ($projects_user_part_of as $project): ?>
                         <li>
-                        
                             <a href="project_view.php?id=<?= $project["project_id"] ?>"><h3><?= $project["title"] ?></h3></a>
                             <p><?= $project["description"] ?></p>
                         </li>

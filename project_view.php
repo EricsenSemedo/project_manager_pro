@@ -143,6 +143,8 @@
             </form>
 
             <p class="description"><?= $projectDetails["description"]; ?></p>
+            
+            <a href="project_add_member_form.php?id=<?= $project_id ?>"><h3>Add Member</h3></a>
 
             <button onclick="window.location.href='home.php'">Go to Home</button>
 
