@@ -77,8 +77,12 @@
 
         <main>
             <br><br><br> 
-            <p><?= $projectDetails["description"]; ?></p>
+            <p>Project Description: <?= $projectDetails["description"]; ?></p>
             
+            <!-- id should be the project ID. for each task, event, sprint, there should be another id listed 
+            that is the task_id, event_id, sprint_id. This will allow the user to click on the task, event, or sprint
+            and be taken to the page that displays the details of that task, event, or sprint. -->
+
             <section class="khanban-board">
                 <ul class="khanban-column">
                     <h2>Tasks</h2>
