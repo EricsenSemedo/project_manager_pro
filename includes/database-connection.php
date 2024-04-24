@@ -2,12 +2,12 @@
 
 $type     = 'mysql';                             // Type of database
 $server   = '192.185.2.183';                    // Server the database is on
-$db       = 'ericsens_project';     // Name of the database
+$db       = 'erichpri_projectmanagement';     // Name of the database
 $port     = '3306';                           // Port is usually 3306 in Hostgator
 $charset  = 'utf8mb4';                       // UTF-8 encoding using 4 bytes of data per char
 
-$username = 'ericsens_user';     // Enter YOUR cPanel username and user here
-$password = 'bTw3478Eric_';           // Enter YOUR user password here
+$username = 'erichpri_user';     // Enter YOUR cPanel username and user here
+$password = 'P&6n]w=COD9}';           // Enter YOUR user password here
 
 
 // DO *NOT* CHANGE ANYTHING BENEATH THIS LINE
@@ -44,6 +44,7 @@ function pdo(PDO $pdo, string $sql, array $arguments = null)
         }
         $statement = $pdo->prepare($sql);  // If arguments, prepare SQL statement
         $statement->execute($arguments);  // Bind & execute SQL statement w/provided arguments
+
         return $statement;               // Return PDOStatement object
     }
                                           

@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #285b99; /* Background color */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center align horizontally */
+    align-items: center; /* Center align vertically */
+    height: 100vh; /* Full height of viewport */
+}
+
+h1 {
+    text-align: center;
+    color: #290000; /* Heading color */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #666666; /* Label color */
+}
+
+input[type="text"],
+input[type="password"],
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #cccccc; /* Input border color */
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007bff; /* Button background color */
+    color: #ffffff; /* Button text color */
+    cursor: pointer;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #cccccc; /* Input border color */
+    border-radius: 5px;
+}
+
+
+button:hover {
+    background-color: #0056b3; /* Button background color on hover */
+}
+
+form {
+    background-color: #dedede; /* Form background color */
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 40px 0px rgba(150, 170, 250,1); /* Shadow effect */
+}
+
+a {
+    color: #87CEFA; /* SkyBlue */
+}
+
+a:hover {
+    color: #4169E1; /* RoyalBlue */
+}
+
+header {
+    position: absolute; /* Fixed position */
+    top: 0; /* Stick to the top */
+    width: 100%; /* Span across the full width of the screen */
+    height: 50px; /* Set a certain height */
+    display: flex; /* Set up flexbox */
+    justify-content: center; /* Center items horizontally */
+    background-color: white;
+}
+
+.app-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.register_link {
+    text-align: center;
+}
+
+.error {
+    color: white;
+    background-color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.top-left-button {
+    position: absolute;
+    top: .5vw; /* Padding from top of the browser edge*/
+    left: .5vw; /* Padding from left of the browser edge*/
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Button background color */
+    color: #ffffff; /* Button text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.top-left-button:hover {
+    background-color: #0056b3; /* Button background color on hover */
+}
+
+.topBar h1 {
+    position: absolute;
+    top: 0;
+    left:50%;
+    transform: translateX(-50%);
+}

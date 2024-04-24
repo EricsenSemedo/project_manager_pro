@@ -53,19 +53,27 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <div class="login">
+        <header>
+            <nav>
+                <a class="top-left-button" href="register.php">Create New Account</a>
+            </nav>
+            <p class="app-title">Project Manager Pro</p>
+        </header>
+
+        <main>
             <h1>Login</h1>
+
+            <?php if ($errorMessage): ?>
+                <p class="error"><?= $errorMessage ?></p>
+            <?php endif;?>
+
             <form action="login.php" method="POST">
-                <label for="email">email:</label>
+                <label for="email">Email:</label>
                 <input type="text" name="email" id="email" required>
                 <label for="password">Password:</label>
                 <input type="password" name="password" id="password" required>
                 <button type="submit">Login</button>
             </form>
-        </div>
-
-        <?php if ($errorMessage): ?>
-            <p class="error"><?= $errorMessage ?></p>
-        <?php endif;?>
+        </main>
     </body>
 </html>
