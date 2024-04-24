@@ -69,6 +69,40 @@
         <TITLE></TITLE>
         <link rel="stylesheet" href="css/style.css">
     </HEAD>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #285b99; /* Background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Center align horizontally */
+            align-items: center; /* Center align vertically */
+            height: 100vh; /* Full height of viewport */
+            position: relative;
+        }
+        main {
+            display: flex;
+            justify-content: space-between; /* Distribute forms evenly */
+            width: 100%;
+            margin-top: auto;
+        }
+        form {
+            background-color: #285b99; /* Form background color */
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0px 0px 40px 0px rgba(150, 170, 250,0); /* Shadow effect */
+            width: calc(33.33% - 20px); /* Each form takes up roughly one-third of the available space */
+            margin: 0 25px; /* Added margin between forms */
+        }
+        button {
+            margin-top: 20px; /* Add some space between the main content and the button */
+        }
+        .description {
+            margin-top: 100px; /* Add margin to separate from forms */
+            text-align: center; /* Center align text */
+        }
+    </style>
     <BODY>
         <header>
             <h1><?php echo $projectDetails["title"]; ?></h1>
@@ -77,48 +111,41 @@
 
         <main>
             <br><br><br> 
-            <p>Project Description: <?= $projectDetails["description"]; ?></p>
             
-            <!-- id should be the project ID. for each task, event, sprint, there should be another id listed 
-            that is the task_id, event_id, sprint_id. This will allow the user to click on the task, event, or sprint
-            and be taken to the page that displays the details of that task, event, or sprint. -->
+            <form class="khanban-column">
+                <h2>Tasks</h2>
+                <a href="project_tasks_form.php?id=<?= $project_id ?>"><h3>Add task</h3></a>
+                <?php foreach ($associatedTasks as $task): ?>
+                    <li class="khanban-card">
+                        <a href="project_tasks.php?id=<?= $task["id"] ?>"><h3><?php echo $task["title"]; ?></h3></a>
+                    </li>
+                <?php endforeach; ?>
+            </form>
 
-            <section class="khanban-board">
-                <ul class="khanban-column">
-                    <h2>Tasks</h2>
-                    <a href="project_tasks_form.php?id=<?= $project_id ?>"><h3>Add task</h3></a>
-                    <?php foreach ($associatedTasks as $task): ?>
-                        <li class="khanban-card">
-                            <a href="project_tasks.php?id=<?= $task["id"] ?>"><h3><?php echo $task["title"]; ?></h3></a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-
-                <ul class="khanban-column">
-                    <h2>Events</h2>
-                    <a href="project_events_form.php?id=<?= $project_id ?>"><h3>Add Events</h3></a>
-                    <?php foreach ($associatedEvents as $event): ?>
-                        <li class="khanban-card">
-                            <a href="project_events.php?id=<?= $event["id"] ?>"><h3><?php echo $event["title"]; ?></h3></a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
+            <form class="khanban-column">
+                <h2>Events</h2>
+                <a href="project_events_form.php?id=<?= $project_id ?>"><h3>Add Events</h3></a>
+                <?php foreach ($associatedEvents as $event): ?>
+                    <li class="khanban-card">
+                        <a href="project_events.php?id=<?= $event["id"] ?>"><h3><?php echo $event["title"]; ?></h3></a>
+                    </li>
+                <?php endforeach; ?>
+                </form>
                 
-                <ul class="khanban-column">
-                    <h2>Sprints</h2>
-                    <a href="project_Sprints_form.php?id=<?= $project_id ?>"><h3>Add Sprints</h3></a>
-                    <?php foreach ($associatedSprints as $sprint): ?>
-                        <li class="khanban-card">
-                            <a href="project_sprints.php?id=<?= $sprint["id"] ?>"><h3><?php echo $sprint["title"]; ?></h3></a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </section>
+            <form class="khanban-column">
+                <h2>Sprints</h2>
+                <a href="project_Sprints_form.php?id=<?= $project_id ?>"><h3>Add Sprints</h3></a>
+                <?php foreach ($associatedSprints as $sprint): ?>
+                    <li class="khanban-card">
+                        <a href="project_sprints.php?id=<?= $sprint["id"] ?>"><h3><?php echo $sprint["title"]; ?></h3></a>
+                    </li>
+                <?php endforeach; ?>
+            </form>
+
+            <p class="description"><?= $projectDetails["description"]; ?></p>
 
             <button onclick="window.location.href='home.php'">Go to Home</button>
 
         </main>
-
-
     </BODY>
 </HTML>
