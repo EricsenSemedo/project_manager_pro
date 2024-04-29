@@ -14,18 +14,21 @@
      * @return array|null       An associative array containing the user's data, or null if no user is found.
      */
     function getUser(PDO $pdo, string $email, string $password){
-        $sql = "SELECT user_id
+        $sql = "SELECT user_id, password_hash
             FROM Users
-            WHERE email = :email and password_hash = :password;";
-        $user = pdo($pdo, $sql, ["email" => $email, "password" => $password])->fetch();
+            WHERE email = :email;";
+        $user = pdo($pdo, $sql, ["email" => $email])->fetch();
+
+        if ($user && password_verify($password, $user["password_hash"])) {
+            return $user;
+        }
         
-        return $user;
+        return null;
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Retrieve the email and password from the form
         $email = $_POST["email"];
-        // TODO: Hash the password before storing it in the variable to then compare it with the database
         $password = $_POST["password"];
 
         $user = getUser($pdo, $email, $password); // Get the user from the database
