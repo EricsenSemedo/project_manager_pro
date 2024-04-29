@@ -1,7 +1,7 @@
 <?php
-    require "includes/database-connection.php"; // Require the database connection file
-
     session_start(); // Start a new session so that we can save and retrieve the user's data across multiple pages
+
+    require "includes/database-connection.php"; // Require the database connection file
 
     // Check if the user is not logged in
     if (!isset($_SESSION["user_id"])) {
