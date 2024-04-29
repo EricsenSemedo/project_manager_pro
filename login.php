@@ -7,7 +7,7 @@
     $errorMessage = "";
 
     if (isset($_SESSION["error_message"])) {
-        errorMessage = $_SESSION["error_message"];
+        $errorMessage = $_SESSION["error_message"];
         unset($_SESSION["error_message"]);
     }
 
