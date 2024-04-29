@@ -91,7 +91,6 @@
 
     //get the projects user is a member of but isnt the owner 
     $projects_user_part_of = getUserPartOfProjects($pdo, $user_id);
-
 ?>
 
 <!DOCTYPE>

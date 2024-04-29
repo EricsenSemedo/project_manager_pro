@@ -1,9 +1,8 @@
 <?php
-    require 'includes/database-connection.php'; // Require the database connection file
-
     session_start(); // Start a new session so that we can save the user's data across multiple pages
 
-
+    require 'includes/database-connection.php'; // Require the database connection file
+    
     $errorMessage = "";
 
     if (isset($_SESSION["error_message"])) {
