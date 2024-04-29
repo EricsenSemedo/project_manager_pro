@@ -1,13 +1,12 @@
 <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
     require "includes/database-connection.php"; // Require the database connection file
 
     session_start(); // Start a new session so that we can save and retrieve the user's data across multiple pages
 
     // Check if the user is not logged in
     if (!isset($_SESSION["user_id"])) {
+        $_SESSION["error"] = "You must be logged in to access this page.";
+
         // Redirect the user to the login page
         header("Location: login.php");
         exit;

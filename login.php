@@ -3,7 +3,13 @@
 
     session_start(); // Start a new session so that we can save the user's data across multiple pages
 
+
     $errorMessage = "";
+
+    if (isset($_SESSION["error_message"])) {
+        errorMessage = $_SESSION["error_message"];
+        unset($_SESSION["error_message"]);
+    }
 
     /*
      * Retrieves a user from the database using the provided email and password.
