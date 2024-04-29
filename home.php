@@ -5,7 +5,7 @@
 
     // Check if the user is not logged in
     if (!isset($_SESSION["user_id"])) {
-        $_SESSION["error"] = "You must be logged in to access this page.";
+        $_SESSION["error_message"] = "You must be logged in to access that page.";
 
         // Redirect the user to the login page
         header("Location: login.php");
