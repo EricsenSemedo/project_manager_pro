@@ -45,7 +45,6 @@
 
             // Redirect to the home page
             header("Location: home.php");
-            exit();
         }
         else {
             // Invalid email or password
