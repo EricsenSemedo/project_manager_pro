@@ -31,9 +31,9 @@
         $lastname = $_POST["lastname"];
         $email = $_POST["email"];
         $password = $_POST["password"];
-        // TODO: Hash the password before storing it in the variable to then compare it with the database
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $userInserted = insertUser($pdo, $firstname, $lastname, $email, $password); 		// Get the user from the database
+        $userInserted = insertUser($pdo, $firstname, $lastname, $email, $hashedPassword); 		// Get the user from the database
         
         if (!$userInserted) {
             $statusMessage = "User ID already exists.  Please choose another.";
