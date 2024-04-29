@@ -55,7 +55,7 @@
 <body>
         <header>
             <nav>
-                <a class="top-left-button" href="http://localhost/project_manager_pro/login.php">Back to Login</a>
+                <a class="top-left-button" href="login.php">Back to Login</a>
             </nav>
             <p class="app-title">Project Manager Pro</p>
         </header>
