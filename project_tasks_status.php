@@ -1,14 +1,7 @@
-<!-- A form to update task status in database -->
-<!-- Project settings button
-    Add user
-    Remove user
--->
 <?php
-    
+    session_start();
 
     require 'includes/database-connection.php'; // Require the database connection file
-
-    session_start();
 
     //function to get task details
     function getTaskDetails (PDO $pdo, int $task_id){

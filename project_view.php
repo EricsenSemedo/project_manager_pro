@@ -1,7 +1,7 @@
 <?php
-    require 'includes/database-connection.php'; // Require the database connection file
-
     session_start();
+
+    require 'includes/database-connection.php'; // Require the database connection file
 
     // Check if the user is not logged in
     if (!isset($_SESSION["user_id"])) {

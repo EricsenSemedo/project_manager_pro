@@ -1,12 +1,7 @@
-<!-- A form to insert event into database -->
-<!-- Project settings button
-    Add user
-    Remove user
--->
 <?php
-    require 'includes/database-connection.php'; // Require the database connection file
-
     session_start();
+
+    require 'includes/database-connection.php'; // Require the database connection file
 
     // Get the user_id from the session
     $user_id = $_SESSION["user_id"];
